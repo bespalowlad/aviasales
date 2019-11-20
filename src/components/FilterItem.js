@@ -13,8 +13,9 @@ class FilterItem extends Component {
             <li className="filters-item">
                 <label>
                     <input 
-                        onChange={() => this.props.handleChange(this.props.item.id)} 
+                        onChange={() => this.props.handleChange(this.props.item.id, this.props.item.value)} 
                         checked={this.props.item.selected}
+                        value={this.props.item.value}
                         type="checkbox" 
                     />
                     <span>{this.props.item.name}</span>

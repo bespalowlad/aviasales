@@ -6,19 +6,17 @@ class Filters extends Component {
         super(props)
         this.state = {
             filters: [
-                {id: 1, selected: false, name: 'Все'},
-                {id: 2, selected: false, name: 'Без пересадок'},
-                {id: 3, selected: false, name: '1 пересадка'},
-                {id: 4, selected: false, name: '2 пересадки'},
-                {id: 5, selected: false, name: '3 пересадки'},
+                {id: 1, selected: true, value: 'all', name: 'Все'},
+                {id: 2, selected: false, value: '0', name: 'Без пересадок'},
+                {id: 3, selected: false, value: '1', name: '1 пересадка'},
+                {id: 4, selected: false, value: '2', name: '2 пересадки'},
+                {id: 5, selected: false, value: '3', name: '3 пересадки'},
             ]
         }
         this.handleChange = this.handleChange.bind(this)
     }
 
-    handleChange (id) {
-        console.log('filter id ', id)
-
+    handleChange (id, value) {
         this.setState( prevState => {
             let changeFilters = prevState.filters.map(item => {
                 if(item.id === id) {
@@ -30,6 +28,8 @@ class Filters extends Component {
                 filters: changeFilters
             }
         })
+
+        this.props.setCurrentCheckbox(value)
     }
 
     render () {

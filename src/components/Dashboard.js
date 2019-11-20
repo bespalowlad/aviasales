@@ -2,22 +2,27 @@ import React, {Component} from 'react'
 import Ticket from './Ticket'
 
 class Dashboard extends Component {
-    constructor (props) {
-        super(props)
-        this.state = {
-            tickets: []
-        }
-    }
 
     componentDidMount () {
         console.log('data from dashboard ', this.props)
     }
 
-    componentDidUpdate (prevProps) {
-        console.log('prevProps ', prevProps)
-    }
-
     render () {
+        let arr = this.props.tickets.tickets
+
+        const tickets = arr
+            .filter((t, i) => i < 5)
+            .filter((ticket, index) => {
+                if (this.props.currentCheckbox === 'all') {
+                    return ticket
+                } else if (this.props.currentCheckbox == ticket.segments[0].stops.length) {
+                    return ticket
+                }
+            })
+            .map((t, idx) => {
+                return <Ticket ticket={t} key={idx} />
+            })
+
         return (
             <div className="dashboard">
                 <div className="switches">
@@ -25,8 +30,7 @@ class Dashboard extends Component {
                     <button>Самый быстрый</button>
                 </div>
                 <div className="tickets-list">
-                    <Ticket />
-                    {this.props.tickets.length}
+                    {tickets}
                 </div>
             </div>
         )

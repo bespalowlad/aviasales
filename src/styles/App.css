@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   background-color: #F3F7FA;
-  height: 100vh;
 }
 
 .App-logo {
@@ -41,6 +40,10 @@
 	width: 230px;
 	margin-right: 20px;
 	background-color: white;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 20px;
 }
 
 .dashboard {
@@ -50,6 +53,9 @@
 .switches {
 	display: flex;
 	width: 100%;
+	margin-bottom: 40px;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
 }
 
 .switches button {
@@ -61,4 +67,37 @@
 	background-color: white;
 	padding: 0;
 	border: 0;
+}
+
+.tickets-list {
+	width: 100%;
+	overflow: hidden;
+}
+
+.ticket {
+	width: 100%;
+	background-color: white;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+}
+
+.ticket-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.ticket-origin,
+.ticket-destination {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.ticket-origin {
+	margin-bottom: 15px;
 }
